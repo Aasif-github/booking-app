@@ -13,6 +13,11 @@ exports.createBooking = exports.getBookings = void 0;
 const aptbook_model_1 = require("../models/aptbook.model");
 const app_1 = require("../app");
 const getBookings = (req, res) => {
+    let data = {
+        status: "success",
+        message: "Get all bookings",
+    };
+    app_1.io.emit('get-booking', data);
     res.send("Get all bookings");
 };
 exports.getBookings = getBookings;

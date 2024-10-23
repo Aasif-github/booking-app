@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <h5>Test socket</h5>  
+</head>
+<body>
+    <script src="https://cdn.socket.io/4.7.2/socket.io.min.js"></script>  
+</body>
+
+<script>
+    // const socket = io('http://localhost:3000');  // Replace with your server URL
+    
+    const socket = io();  // Replace with your server URL
+    console.log(`socket`,socket);
+
+    socket.on('connect', () => {
+        console.log('Connected to server');
+    });
+
+
+     
+    document.addEventListener('DOMContentLoaded', () => {
+
+  
+
+    socket.on('connect', () => {
+      console.log('Connected to server');
+
+      // Send a message to the server
+      socket.emit('message', 'Hello from the client!');
+      
+      // Listen for server events on get-booking
+      socket.on('get-booking', (data) => {
+        console.log(data);
+      });
+
+      // Listen for server messages
+      socket.on('message', (data) => {
+        console.log(data);
+      });
+    });
+  });
+</script>
+
+</html>

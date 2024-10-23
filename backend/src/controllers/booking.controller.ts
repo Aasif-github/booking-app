@@ -5,6 +5,14 @@ import ReturnResponse from "../utils/interfaces";
 import { io } from "../app";
 
 export const getBookings = (req: Request, res: Response) => {
+    
+    let data = {
+        status: "success",
+        message: "Get all bookings",
+    };
+    
+    io.emit('get-booking', data);
+    
     res.send("Get all bookings");
 }   
 

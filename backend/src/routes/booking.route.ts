@@ -1,5 +1,5 @@
 import express from "express";
-import { createBooking } from "../controllers/booking.controller";
+import { getBookings, createBooking } from "../controllers/booking.controller";
 
 const router = express.Router();
 
@@ -7,6 +7,8 @@ const router = express.Router();
 //     res.send("Hello, TypeScript + Node.js + Express!");
 // });
 
+router.get("/appointments", getBookings);
 router.post("/book-appointment", createBooking);
+
 
 export default router;

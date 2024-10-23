@@ -9,5 +9,6 @@ const router = express_1.default.Router();
 // router.get("/", (req, res) => {
 //     res.send("Hello, TypeScript + Node.js + Express!");
 // });
+router.get("/appointments", booking_controller_1.getBookings);
 router.post("/book-appointment", booking_controller_1.createBooking);
 exports.default = router;
